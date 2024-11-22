@@ -1,0 +1,383 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Navbar */
+header {
+  background-color: #fff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease forwards;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 60px;
+}
+
+nav .logo img {
+  width: 100px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  animation: slideIn 1.2s ease forwards;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007BFF;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007BFF;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+nav .cta {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Navbar Responsiveness */
+@media (max-width: 768px) {
+  nav {
+    padding: 20px 20px;
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .nav-links li {
+    text-align: center;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    font-size: 18px;
+  }
+
+  nav .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+  
+  .nav-links a::after {
+    display: none;
+  }
+}
+
+/* Hide navbar on scroll */
+header.hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+nav .cta:hover {
+  background-color: #0056b3;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Menjadikan gambar responsif */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero .cta {
+  padding: 15px 40px;
+  font-size: 18px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero .cta:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 60vh;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero .cta {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 80px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 36px;
+  color: #462607;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.testimonial-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.testimonial {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.customer-name {
+  font-weight: bold;
+  color: #7f4518;
+}
+
+.customer-role {
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+}
+
+/* Services Section */
+.services {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 36px;
+  color: #462607;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.service-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.service-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-item i {
+  font-size: 40px;
+  color: #007BFF;
+  margin-bottom: 20px;
+}
+
+.service-item h3 {
+  font-size: 18px;
+  color: #462607;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.service-item p {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .service-item i {
+    font-size: 30px;
+  }
+
+  .service-item h3 {
+    font-size: 16px;
+  }
+
+  .service-item p {
+    font-size: 14px;
+  }
+}
+
+ /* Footer Styling */
+ .footer {
+  background-color: #602b08;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 15px;
+  font-size: 1.5em;
+}
+
+.social-links a:hover {
+  color: #ffcc00;
+}
